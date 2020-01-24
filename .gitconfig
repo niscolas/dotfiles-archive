@@ -1,0 +1,6 @@
+[alias]
+	t = log --oneline --graph --decorate --all
+	s = status -sb
+
+	hide = update-index --assume-unchanged
+        unhide = update-index --no-assume-unchanged
