@@ -1,6 +1,23 @@
+[core]
+	autocrlf = input
 [alias]
 	t = log --oneline --graph --decorate --all
 	s = status -sb
+	c = commit
+	ch = checkout
+	d = diff
 
 	hide = update-index --assume-unchanged
         unhide = update-index --no-assume-unchanged
+
+
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[init]
+	defaultBranch = main
+[user]
+	name = niscolas
+	email = nic.cp@hotmail.com
