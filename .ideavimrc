@@ -1,26 +1,30 @@
-source ~/.vimrc 
+source ~/.vim/settings.vim
+source ~/.vim/keymap.vim
 
-" plugins
-set surround
-set commentary
-set NERDTree
-set textobj-indent
-set vim-paragraph-motion
-set argtextobj
-
-" plugins settings (NERDTree)
-map <leader>hh :NERDTree<cr>
-map <leader>ht :NERDTreeToggle<cr>
+let mapleader=" "
 
 " idea settings
 set ideajoin
 set idearefactormode=keep
 
+" plugins: {{{
+
+set argtextobj
+set easymotion
+set commentary
+set NERDTree
+set surround
+set textobj-indent
+set vim-paragraph-motion
+
+" }}}
+
+" plugins settings (NERDTree)
+map <leader>hh :NERDTree<cr>
+map <leader>ht :NERDTreeToggle<cr>
+
 " source .ideavimrc
 nnoremap \v :source ~/.ideavimrc<cr>
-
-" searching
-nnoremap <leader>/ :action Find<cr> 
 
 " project navigation
 map <leader>hf <Action>(SelectInProjectView)
@@ -31,12 +35,12 @@ map <leader>qa <Action>(CloseAllEditors)
 map <leader>qo <Action>(CloseAllEditorsButActive)
 
 " tab navigation
+
+" navigation: {{{
+
 nnoremap <a-h> gT
 nnoremap <a-l> gt
-nnoremap <c-s-tab> gk
-nnoremap <c-tab> gt
 
-" code navigation
 map <leader>ip <Action>(ParameterInfo)
 map <leader>iu <Action>(ShowUsages)
 map <leader>ii <Action>(GotoImplementation)
@@ -48,18 +52,18 @@ map <a-k> <Action>(MoveStatementUp)
 nnoremap [q :action PreviousOccurence<cr>
 nnoremap ]q :action NextOccurence<cr>
 
-" code editing (saving / pasting)
 map <leader>s <Action>(SaveAll)
 map <leader>pm <Action>(PasteMultiple)
 map <leader>pc "+p
 
-" code editing (renaming / formatting)
 nnoremap gcc <Action>(CommentByLineComment)
 map <leader>rm <Action>(Move)
-map <leader>rf <Action>(ReformatCode)
+map <leader>cf <Action>(ReformatCode)
 map <leader>rr <Action>(RenameElement)
-map <leader>ro <Action>(OptimizeImports)
-map <leader>al <Action>(ShowIntentionActions)
+map <leader>xi <Action>(OptimizeImports)
+map <leader>ca <Action>(ShowIntentionActions)
+
+" }}}
 
 " code generation
 map <leader>ce <Action>(NewElement)

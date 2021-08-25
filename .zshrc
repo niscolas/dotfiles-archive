@@ -27,7 +27,6 @@ alias bat="batcat"
 alias cat="bat"
 alias fd="fdfind"
 # aliases (vim)
-alias n="nvim"
 alias vimconfig="n ~/.vimrc"
 # aliases (unity)
 #alias regen_unity_csprojs="$MAIN_UNITY -batchmode -nographics -logFile - -executeMethod UnityEditor.SyncVS.SyncSolution -projectPath . -quit"

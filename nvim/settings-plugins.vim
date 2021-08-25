@@ -1,18 +1,34 @@
 " airline: {{{
 
 let g:airline_theme='gruvbox'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#buffer_nr_show = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_powerline_fonts = 1
+let g:airline_highlighting_cache = 1
+
+let g:airline_extensions = [
+            \ "ale",
+            \ "omnisharp",
+            \ "tabline"
+            \ ]
+
+let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#formatter = 'unique_tail'
+
+if ! has('gui_running')
+  set ttimeoutlen=10
+  augroup FastEscape
+    autocmd!
+    au InsertEnter * set timeoutlen=0
+    au InsertLeave * set timeoutlen=1000
+  augroup END
+endif
 
 " }}}
 
 " ale: {{{
 
 let g:ale_linters = {
-            \ 'cs': ['OmniSharp']
-            \}
+    \ 'cs': ['OmniSharp']
+    \}
 
 let g:ale_sign_error = '•'
 let g:ale_sign_warning = '•'
@@ -28,12 +44,26 @@ let g:asyncomplete_auto_completeopt = 0
 
 " }}}
 
+" bufferline: {{{
+
+" lua << EOF
+" require("bufferline").setup{}
+" EOF
+
+" }}}
+
 " fzf: {{{
 
 " [Buffers] Jump to the existing window if possible
 let g:fzf_buffers_jump = 1
     
 " }}}
+"
+" " galaxyline: {{{
+
+" source ~/.config/nvim/plugins/statusline.lua
+
+" " }}}
 
 " goyo: {{{
 
@@ -50,6 +80,13 @@ autocmd! User GoyoEnter nested call <SID>goyo_enter()
 
 " }}}
 
+" gruvbox: {{{
+
+colorscheme gruvbox
+set background=dark
+
+" }}}
+
 " omnisharp: {{{
 
 let g:OmniSharp_translate_cygwin_wsl = 1
@@ -59,12 +96,17 @@ let g:OmniSharp_selector_ui = 'fzf'
 
 let g:OmniSharp_diagnostic_showid = 1
 let g:OmniSharp_diagnostic_exclude_paths = [
-            \ 'obj\\',
-            \ '[Tt]emp\\',
-            \ '\<AssemblyInfo\.cs\>',
-            \ '[Ll]ibrary\\',
-            \ '^/mnt/\c/\Program Files/\Unity',
-            \]
+    \ '[Tt]emp',
+    \ 'obj',
+    \ '[Ll]ibrary',
+    \ '**\\Unity\\Hub'
+    \]
+" IDE0055: Fix formatting - display in ALE as `Warning` style error
+" CS8019: Duplicate of IDE0005
+" RemoveUnnecessaryImportsFixable: Generic warning that an unused using exists
+let g:OmniSharp_diagnostic_overrides = {
+    \ 'IDE0055': {'type': 'W', 'subtype': 'Style'},
+    \}
 
 " popups 
 let g:OmniSharp_popup_position = 'peek'
@@ -99,8 +141,8 @@ let g:OmniSharp_highlight_groups = {
 
 " nvim-tree: {{{
 
-let g:nvim_tree_width = 30
-let g:nvim_tree_ignore = [ '.git', 'node_modules', '.cache' ] "empty by default
+let g:nvim_tree_width = 30 "30 by default, can be width_in_columns or 'width_in_percent%'
+let g:nvim_tree_ignore = [ '.git', 'node_modules', '.cache', '*.meta'] "empty by default
 let g:nvim_tree_gitignore = 0 "0 by default
 let g:nvim_tree_auto_close = 1 "0 by default, closes the tree when it's the last window
 let g:nvim_tree_quit_on_open = 1 "0 by default, closes the tree when you open a file
@@ -184,3 +226,29 @@ highlight NvimTreeFolderIcon guibg=blue
 
 " }}}
 
+" telescope: {{{
+
+lua << EOF
+require('telescope').setup {
+    defaults = {
+        file_ignore_patterns = {
+            ".git",
+            "node_modules",
+            "**/*.asmdef",
+            "**/*.asset",
+            "**/*.bank",
+            "**/*.mat",
+            "**/*.meta",
+            "**/*.mixer",
+            "**/*.otf",
+            "**/*.physicMaterial",
+            "**/*.physicsMaterial",
+            "**/*.prefab",
+            "**/*.preset",
+            "**/*.ttf"
+        }
+    }
+}
+EOF
+
+" }}}
