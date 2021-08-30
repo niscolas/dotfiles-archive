@@ -1,1 +1,1 @@
-# simple-dotfiles
+# my dotfiles :smiley:
