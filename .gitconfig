@@ -1,7 +1,7 @@
 [core]
 	autocrlf = input
 [alias]
-	t = log --oneline --graph --decorate --all
+        lg = log --graph --pretty=format:'%Cred%h%Creset - %Cgreen(%ad)%C(yellow)%d%Creset %s %C(bold blue)<%an>%Creset' --abbrev-commit --date=local
 	s = status -sb
 	c = commit
 	ch = checkout

@@ -5,11 +5,23 @@ imap <c-space> <Plug>(asyncomplete_force_refresh)
 
 " }}}
 
+" coc.nvim: {{{
+
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+" }}}
+
 " fugitive: {{{
 
 nnoremap <leader>gs :Git<cr>
 nnoremap <leader>gd :Gvdiffsplit<cr>
 nnoremap <leader>gl :Gllog<cr>
+command -nargs=* Glg Git --paginate lg <args>
 
 " }}}
 
@@ -30,7 +42,7 @@ augroup omnisharp_commands
     autocmd FileType cs nmap <buffer> <leader>fs <Plug>(omnisharp_find_symbol)
     autocmd FileType cs nmap <buffer> <leader>pd <Plug>(omnisharp_preview_definition)
     autocmd FileType cs nmap <buffer> <leader>pi <Plug>(omnisharp_preview_implementations)
-    autocmd FileType cs nmap <buffer> <leader>ostl <Plug>(omnisharp_type_lookup)
+    autocmd FileType cs nmap <buffer> <leader>tl <Plug>(omnisharp_type_lookup)
     autocmd FileType cs nmap <buffer> <leader>doc <Plug>(omnisharp_documentation)
     autocmd FileType cs nmap <buffer> <leader>xu <Plug>(omnisharp_fix_usings)
     autocmd filetype cs nmap <buffer> <c-\> <Plug>(omnisharp_signature_help)
@@ -45,8 +57,8 @@ augroup omnisharp_commands
     autocmd FileType cs nmap <buffer> <leader>ca <Plug>(omnisharp_code_actions)
     autocmd FileType cs xmap <buffer> <leader>ca <Plug>(omnisharp_code_actions)
     " Repeat the last code action performed (does not use a selector)
-    autocmd FileType cs nmap <buffer> <leader>car <Plug>(omnisharp_code_action_repeat)
-    autocmd FileType cs xmap <buffer> <leader>car <Plug>(omnisharp_code_action_repeat)
+    " autocmd FileType cs nmap <buffer> <leader>car <Plug>(omnisharp_code_action_repeat)
+    " autocmd FileType cs xmap <buffer> <leader>car <Plug>(omnisharp_code_action_repeat)
 
     autocmd FileType cs nmap <buffer> <leader>cf <Plug>(omnisharp_code_format)
 

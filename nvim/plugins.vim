@@ -6,7 +6,7 @@ call plug#begin(stdpath('data') . '/plugged')
 
 " auto-completion / linting / language support: {{{
 
-Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'dense-analysis/ale'
 
@@ -72,7 +72,7 @@ Plug 'vim-scripts/argtextobj.vim'
 " other: {{{
 
 Plug 'vim-utils/vim-man'
-" Plug 'vimwiki/vimwiki'
+Plug 'vimwiki/vimwiki'
 Plug 'moll/vim-bbye'
 
 " }}}
