@@ -16,7 +16,7 @@ let mapleader=" "
 set nobackup
 set noswapfile
 set nowritebackup
-set undodir=~/.config/nvim/undodir
+set undodir=~/.local/share/nvim/undodir
 set undofile
 
 " }}}
@@ -106,7 +106,7 @@ set noerrorbells
 set noshowmode
 set nowrap
 set scrolloff=16
-set smartcase
+set timeoutlen=1000
 set title
 set updatetime=500
 
@@ -115,16 +115,18 @@ set updatetime=500
 " searching: {{{
 
 set hlsearch
+set ignorecase
 set incsearch
+set smartcase
 
 " }}}
 
-" spelling: {{{
+" " spelling: {{{
 
-set spell
-set spelllang=en_us
+" set spell
+" set spelllang=en_us,pt_br
 
-" }}}
+" " }}}
 
 " " wildmenu: {{{
 

@@ -1,31 +1,50 @@
-" asyncomplete: {{{
+" let g:OmniSharp_translate_cygwin_wsl = 1
 
-inoremap <expr> <cr> pumvisible() ? asyncomplete#close_popup() : "\<cr>"
-imap <c-space> <Plug>(asyncomplete_force_refresh)
+" let g:OmniSharp_selector_findusages = 'fzf'
+" let g:OmniSharp_selector_ui = 'fzf'
 
-" }}}
+let g:OmniSharp_diagnostic_showid = 1
+let g:OmniSharp_diagnostic_exclude_paths = [
+    \ '[Tt]emp',
+    \ 'obj',
+    \ '[Ll]ibrary',
+    \ '**\\Unity\\Hub'
+    \]
+" IDE0055: Fix formatting - display in ALE as `Warning` style error
+" CS8019: Duplicate of IDE0005
+" RemoveUnnecessaryImportsFixable: Generic warning that an unused using exists
+let g:OmniSharp_diagnostic_overrides = {
+    \ 'IDE0055': {'type': 'W', 'subtype': 'Style'},
+    \}
 
-" coc.nvim: {{{
+" popups 
+let g:OmniSharp_popup_position = 'peek'
 
-" Use <c-space> to trigger completion.
 if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
+    let g:OmniSharp_popup_options = {
+                \ 'winhl': 'Normal:NormalFloat'
+                \}
 else
-  inoremap <silent><expr> <c-@> coc#refresh()
+    let g:OmniSharp_popup_options = {
+                \ 'highlight': 'Normal',
+                \ 'padding': [0, 0, 0, 0],
+                \ 'border': [1]
+                \}
 endif
 
-" }}}
+let g:OmniSharp_popup_mappings = {
+            \ 'sigNext': '<C-n>',
+            \ 'sigPrev': '<C-p>',
+            \}
 
-" fugitive: {{{
+" snippets
+if g:using_snippets
+    let g:OmniSharp_want_snippet = 1
+endif
 
-nnoremap <leader>gs :Git<cr>
-nnoremap <leader>gd :Gvdiffsplit<cr>
-nnoremap <leader>gl :Gllog<cr>
-command -nargs=* Glg Git --paginate lg <args>
-
-" }}}
-
-" omnisharp: {{{
+let g:OmniSharp_highlight_groups = {
+            \ 'ExcludedCode': 'NonText'
+            \}
 
 augroup omnisharp_commands
     autocmd!
@@ -82,37 +101,3 @@ augroup omnisharp_commands
     command! -nargs=0 DeleteUnityFile call <SID>deleteUnityFile(<f-args>)
 augroup END
 
-" }}}
-
-" nvim-tree: {{{
-
-nnoremap <leader>nn :NvimTreeToggle<CR>
-nnoremap <leader>nr :NvimTreeRefresh<CR>
-nnoremap <leader>nf :NvimTreeFindFile<CR>
-
-" }}}
-
-" ultisnips: {{{
-
-if g:using_snippets
-    let g:UltiSnipsExpandTrigger= "<c-l>"
-    let g:UltiSnipsJumpForwardTrigger = "<tab>"
-    let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-endif
-
-" }}}
-
-" telescope: {{{
-
-nnoremap <c-p> <cmd>Telescope find_files<cr>
-nnoremap <c-f> <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-
-" }}}
-
-" undotree: {{{
-
-nnoremap <f6> :UndotreeToggle<cr>
-
-" }}}

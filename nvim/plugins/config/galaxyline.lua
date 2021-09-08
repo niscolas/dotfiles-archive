@@ -100,7 +100,7 @@ gls.left[2] = {
         provider = {function() return '  ' end, 'FileIcon'},
         condition = buffer_not_empty,
         highlight = {
-            require('galaxyline.provider_fileinfo').get_file_icon,
+            require('galaxyline.provider_fileinfo').get_file_icon_color,
             colors.section_bg
         }
     }
@@ -156,7 +156,7 @@ gls.right[1] = {
         provider = 'DiffAdd',
         condition = checkwidth,
         icon = '+',
-        highlight = {colors.gree, colors.bg}
+        highlight ={colors.gree, colors.bg}
     }
 }
 gls.right[2] = {
@@ -199,7 +199,7 @@ gls.right[6] = {
 gls.right[7] = {
     PerCent = {
         provider = 'LinePercent',
-        separator = '',
+        separator = ' ',
         separator_highlight = {colors.blue, colors.bg},
         highlight = {colors.gray2, colors.blue}
     }
@@ -226,4 +226,4 @@ gls.short_line_right[1] = {
 
 -- Force manual load so that nvim boots with a status line
 gl.load_galaxyline()
-
+ 
