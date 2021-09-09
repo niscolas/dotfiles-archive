@@ -1,5 +1,5 @@
-source ~/.vim/settings.vim
-source ~/.vim/keymap.vim
+source ~/dotfiles/nvim/settings.vim
+source ~/dotfiles/nvim/keymap.vim
 
 let mapleader=" "
 

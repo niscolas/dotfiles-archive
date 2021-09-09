@@ -18,7 +18,7 @@ Plug 'L3MON4D3/LuaSnip'
 Plug 'onsails/lspkind-nvim'
 " other
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'glepnir/lspsaga.nvim'
+" Plug 'glepnir/lspsaga.nvim'
 
 " Plug 'OmniSharp/omnisharp-vim'
 " Plug 'dense-analysis/ale'
@@ -66,7 +66,6 @@ Plug 'tpope/vim-fugitive'
 " file / project management: {{{
 
 Plug 'kyazdani42/nvim-tree.lua'
-Plug 'mhinz/vim-startify'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'tpope/vim-eunuch'

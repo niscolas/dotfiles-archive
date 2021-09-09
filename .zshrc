@@ -16,10 +16,11 @@ source $ZSH/oh-my-zsh.sh
 bindkey -v
 
 ## aliases
-alias bat="batcat"
 alias cat="bat"
-alias fd="fdfind"
 alias l="ls -lah"
 alias packunityproj="zip -r project.zip Assets/ ProjectSettings/ Packages/" 
 alias zshsrc="source ~/.zshrc"
-
+# arch-specific
+alias install="sudo pacman -Sy"
+alias uninstall="sudo pacman -R"
+alias update="sudo pacman -Syu"
