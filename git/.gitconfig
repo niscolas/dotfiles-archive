@@ -3,7 +3,8 @@
 [alias]
         t = log --graph --pretty=format:'%Cred%h%Creset - %Cgreen(%ad)%C(yellow)%d%Creset %s %C(bold blue)<%an>%Creset' --abbrev-commit --date=local
 	s = status -sb
-	c = commit
+	c = commit -m
+	ca = commit --amend --no-edit
 	ch = checkout
 	d = diff
 
@@ -26,4 +27,4 @@
 
 [mergetool "unityyamlmerge"]
     trustExitCode = false
-    cmd = /mnt/c/'Program Files'/Unity/Hub/Editor/2020.3.0f1/Editor/Data/Tools/UnityYAMLMerge.exe merge -p "$BASE" "$REMOTE" "$LOCAL" "$MERGED"
+    cmd = $UNITY_EDITOR/Editor/Data/Tools/UnityYAMLMerge.exe merge -p "$BASE" "$REMOTE" "$LOCAL" "$MERGED"

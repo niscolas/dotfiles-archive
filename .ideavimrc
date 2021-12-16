@@ -9,19 +9,22 @@ set idearefactormode=keep
 
 " plugins: {{{
 
-set argtextobj
-set easymotion
-set commentary
 set NERDTree
+set argtextobj
+set commentary
+set easymotion
 set surround
 set textobj-indent
-set vim-paragraph-motion
+set highlightedyank
+set textobj-entire
+set ReplaceWithRegister
 
 " }}}
 
 " plugins settings (NERDTree)
 map <leader>hh :NERDTree<cr>
 map <leader>ht :NERDTreeToggle<cr>
+map <leader>hf :NERDTreeFind<cr>
 
 " source .ideavimrc
 nnoremap \v :source ~/.ideavimrc<cr>
@@ -34,17 +37,15 @@ map <leader>qq <Action>(CloseEditor)
 map <leader>qa <Action>(CloseAllEditors)
 map <leader>qo <Action>(CloseAllEditorsButActive)
 
-" tab navigation
+map <a-h> <Action>(PreviousTab)
+map <a-l> <Action>(NextTab)
 
 " navigation: {{{
 
-nnoremap <a-h> gT
-nnoremap <a-l> gt
-
-map <leader>ip <Action>(ParameterInfo)
-map <leader>iu <Action>(ShowUsages)
-map <leader>ii <Action>(GotoImplementation)
-map <leader>ge <Action>(ReSharperGotoNextErrorInSolution)
+map <c-\> <Action>(ParameterInfo)
+map <leader>fu <Action>(ShowUsages)
+map <leader>fi <Action>(GotoImplementation)
+map <leader>fe <Action>(ReSharperGotoNextErrorInSolution)
 
 map <a-j> <Action>(MoveStatementDown)
 map <a-k> <Action>(MoveStatementUp)
@@ -56,11 +57,10 @@ map <leader>s <Action>(SaveAll)
 map <leader>pm <Action>(PasteMultiple)
 map <leader>pc "+p
 
-nnoremap gcc <Action>(CommentByLineComment)
 map <leader>rm <Action>(Move)
 map <leader>cf <Action>(ReformatCode)
-map <leader>rr <Action>(RenameElement)
-map <leader>xi <Action>(OptimizeImports)
+map <leader>rn <Action>(RenameElement)
+map <leader>xu <Action>(OptimizeImports)
 map <leader>ca <Action>(ShowIntentionActions)
 
 " }}}
@@ -76,4 +76,12 @@ map <leader>z <Action>(ToggleDistractionFreeMode)
 " debugging
 map <leader>dd <Action>(Debug)
 map <leader>dl <Action>(ToggleLineBreakpoint)
+map <leader>dr <Action>(TriggerPlayInUnity)
 map <leader>ds <Action>(Stop)
+map <leader>dw <Action>(ActivateDebugToolWindow)
+
+" testing
+map <leader>tw <Action>(ActivateUnitTestsToolWindow)
+map <leader>tr <Action>(RiderUnitTestRunContextSplitAction)
+map <leader>ts <Action>(RiderUnitTestSessionAbortAction)
+map <leader>td <Action>(RiderUnitTestDebugContextAction)

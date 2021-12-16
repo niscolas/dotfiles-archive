@@ -1,4 +1,8 @@
-set shell=/usr/bin/bash
+if !g:is_windows
+    set shell=/usr/bin/bash
+else
+    set shell=cmd
+endif
 
 filetype indent plugin on
 if !exists("g:syntax_on")
@@ -10,6 +14,10 @@ scriptencoding utf-8
 
 " leader
 let mapleader=" "
+
+if &compatible
+  set nocompatible
+endif
 
 " backup / undoing: {{{
 
@@ -39,24 +47,26 @@ endif
 
 " clipboard: {{{
 
-let s:clip = '/mnt/c/Windows/System32/clip.exe'
+if g:is_wsl
+    let s:clip = '/mnt/c/Windows/System32/clip.exe'
 
-if executable(s:clip)
-    augroup WSLYank
-        autocmd!
-        autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
-    augroup END
+    if executable(s:clip)
+        augroup WSLYank
+            autocmd!
+            autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
+        augroup END
+    endif
 endif
 
 " }}}
 
 " completion: {{{
 
-set completeopt=menuone,noinsert,noselect,preview
+set completeopt=menu,menuone,noselect
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
 
-autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+" autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " }}}
 
@@ -121,12 +131,13 @@ set smartcase
 
 " }}}
 
-" " spelling: {{{
+" spelling: {{{
 
+set nospell
 " set spell
-" set spelllang=en_us,pt_br
+" set spelllang=en_us
 
-" " }}}
+" }}}
 
 " " wildmenu: {{{
 

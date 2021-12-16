@@ -1,33 +1,27 @@
 import:
-  # - ~/.config/alacritty/colorschemes/gruvbox.yml
-  - ~/.config/alacritty/fonts.yml
+  - ~/dotfiles/alacritty/fonts/iosevka-windows.yml
+  - ~/dotfiles/alacritty/windows-settings.yml
 
-## set environment variables
 env:
   TERM: xterm-256color
 
-## terminal window settings
 window:
   dimensions:
     columns: 84
     lines: 22
 
   padding:
-    x: 8
-    y: 8
+    x: 0
+    y: 0
 
-  decorations: None
-  startup_mode: Maximized
+  decorations: Full
   dynamic_title: true
 
-## scrolling
   history: 10000
   multiplier: 3
 
-## background opacity
 background_opacity: 0.9
 
-## cursor
 cursor:
   style:
     shape: Block
@@ -35,10 +29,8 @@ cursor:
 
   unfocused_hollow: false
 
-## live config reload
 live_config_reload: true
 
-## keymapping 
 key_bindings:
   - { key: F11, action: ToggleFullscreen }
 

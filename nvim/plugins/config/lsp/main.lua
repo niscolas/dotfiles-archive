@@ -1,21 +1,4 @@
--- lsp-install --
-local function setup_servers()
-    require'lspinstall'.setup()
-    local servers = require'lspinstall'.installed_servers()
-    for _, server in pairs(servers) do
-        require'lspconfig'[server].setup{}
-    end
-end
-
-setup_servers()
-
--- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
-require'lspinstall'.post_install_hook = function ()
-    setup_servers() -- reload installed servers
-    vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
-end
-
-local on_attach = function(client, bufnr)
+local function on_attach (client, bufnr)
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
     local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
@@ -55,39 +38,54 @@ capabilities.textDocument.completion.completionItem.deprecatedSupport = true
 capabilities.textDocument.completion.completionItem.commitCharactersSupport = true
 capabilities.textDocument.completion.completionItem.tagSupport = { valueSet = { 1 } }
 capabilities.textDocument.completion.completionItem.resolveSupport = {
-  properties = {
-    'documentation',
-    'detail',
-    'additionalTextEdits',
-  },
+    properties = {
+        'documentation',
+        'detail',
+        'additionalTextEdits',
+    },
 }
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
-local nvim_lsp = require'lspconfig'
+local lsp_installer = require("nvim-lsp-installer")
 
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
-local servers = { 'cpp' }
-for _, lsp in ipairs(servers) do
-    nvim_lsp[lsp].setup {
-        on_attach = on_attach,
-        capabilities = capabilities,
-        flags = {
-            debounce_text_changes = 150,
-        }
-    }
+-- Include the servers you want to have installed by default below
+local servers = {
+    "omnisharp",
+    "sumneko_lua"
+}
+
+for _, name in pairs(servers) do
+    local server_is_found, server = lsp_installer.get_server(name)
+    if server_is_found then
+        if not server:is_installed() then
+            print("Installing " .. name)
+            server:install()
+        end
+    end
 end
 
--- omnisharp
-local pid = vim.fn.getpid()
-local omnisharp_bin = "/home/niscolas/.omnisharp/omnisharp-roslyn/run"
-
-require'lspconfig'.omnisharp.setup{
-    cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid) },
-    on_attach = on_attach,
-    capabilities = capabilities,
-    flags = {
-        debounce_text_changes = 150,
+-- Register a handler that will be called for all installed servers.
+-- Alternatively, you may also register handlers on specific server instances instead (see example below).
+lsp_installer.on_server_ready(function(server)
+    -- Specify the default options which we'll use to setup all servers
+    local default_opts = {
+        on_attach = on_attach,
+        capabilities = capabilities
     }
-}
+
+    -- Now we'll create a server_opts table where we'll specify our custom LSP server configuration
+    local server_opts = {
+        -- Provide settings that should only apply to the "eslintls" server
+        ["omnisharp"] = function()
+            default_opts = {
+                capabilities = capabilities,
+                on_attach = on_attach,
+            }
+        end,
+    }
+
+    -- Use the server's custom settings, if they exist, otherwise default to the default options
+    local server_options = server_opts[server.name] and server_opts[server.name]() or default_opts
+    server:setup(server_options)
+end)
 
