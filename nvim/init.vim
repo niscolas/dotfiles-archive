@@ -27,7 +27,7 @@ endfunction
 
 call g:SmartSourcePath("settings.vim")
 call g:SmartSourcePath("gui/settings.vim")
-call g:SmartSourcePath("neovide/settings.vim")
+" call g:SmartSourcePath("neovide/settings.vim")
 call g:SmartSourcePath("keymap.vim")
 
 if exists('g:vscode')
