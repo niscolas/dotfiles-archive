@@ -4,19 +4,20 @@ packadd cfilter
 
 call plug#begin(stdpath('data') . '/plugged')
 
-" appearance: {{{
+" appearance {{{
 
 Plug 'akinsho/nvim-bufferline.lua'
 Plug 'drzel/vim-gui-zoom'
 Plug 'ellisonleao/gruvbox.nvim'
 Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'rktjmp/lush.nvim'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
 " }}}
 
-" code editing / navigation: {{{
+" code editing / navigation {{{
 
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-commentary'
@@ -32,6 +33,7 @@ Plug 'easymotion/vim-easymotion'
 
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/cmp-emoji'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-vsnip'
@@ -41,7 +43,13 @@ Plug 'hrsh7th/vim-vsnip-integ'
 
 "}}}
 
-" file / project management: {{{
+" debugging {{{
+
+Plug 'mfussenegger/nvim-dap'
+
+"}}}
+
+" file / project management {{{
 
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'mhinz/vim-startify'
@@ -51,7 +59,7 @@ Plug 'tpope/vim-eunuch'
 
 " }}}
 
-" nvim lsp: {{{
+" nvim lsp {{{
 
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -60,7 +68,7 @@ Plug 'williamboman/nvim-lsp-installer'
 
 " }}}
 
-" text objs: {{{
+" text objs {{{
 
 Plug 'kana/vim-textobj-entire'
 Plug 'kana/vim-textobj-user'
@@ -69,20 +77,21 @@ Plug 'vim-scripts/argtextobj.vim'
 
 " }}}
 
-" version control: {{{
+" version control {{{
 
 Plug 'mbbill/undotree'
 Plug 'tpope/vim-fugitive'
 
 " }}}
 "
-" other: {{{
+" other {{{
 
 Plug 'dstein64/vim-startuptime'
 Plug 'folke/which-key.nvim'
 Plug 'moll/vim-bbye'
 Plug 'vim-utils/vim-man'
 Plug 'vimwiki/vimwiki'
+" Plug 'wakatime/vim-wakatime'
 
 " }}}
 

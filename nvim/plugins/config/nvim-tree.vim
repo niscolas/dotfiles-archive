@@ -65,7 +65,7 @@ let g:nvim_tree_icons = {
 
 nnoremap <leader>hh :NvimTreeToggle<cr>
 nnoremap <leader>hf :NvimTreeFindFile<cr>
-
+nnoremap <leader>hr :NvimTreeRefresh<cr>
 
 highlight NvimTreeFolderIcon guibg=blue
 

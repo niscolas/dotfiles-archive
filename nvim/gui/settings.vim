@@ -1,3 +1,3 @@
-set guifont=mononoki\ NF:h15:b
+set guifont=mononoki\ NF:h12:b
 set mouse=a
 

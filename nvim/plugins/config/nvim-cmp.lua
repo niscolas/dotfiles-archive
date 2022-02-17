@@ -49,6 +49,12 @@ cmp.setup ({
         end, { "i", "s" }),
     },
     sources = {
+        {
+            name = 'emoji',
+            option = {
+                insert = true
+            }
+        },
         { name = 'nvim_lsp' },
         { name = 'nvim_lua' },
         { name = "buffer" },
@@ -57,17 +63,17 @@ cmp.setup ({
     experimental = {
         ghost_text = true
     },
-    cmp.setup.cmdline('/', {
-        sources = {
-            { name = 'buffer' }
-        }
-    }),
-    cmp.setup.cmdline(':', {
-        sources = cmp.config.sources({
-            { name = 'path' }
-        }, {
-            { name = 'cmdline' }
-        })
-    })
+    -- cmp.setup.cmdline('/', {
+    --     sources = {
+    --         { name = 'buffer' }
+    --     }
+    -- }),
+    -- cmp.setup.cmdline(':', {
+    --     sources = cmp.config.sources({
+    --         { name = 'path' }
+    --     }, {
+    --         { name = 'cmdline' }
+    --     })
+    -- })
 })
 

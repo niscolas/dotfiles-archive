@@ -4,9 +4,11 @@ require('telescope').setup {
         file_ignore_patterns = {
             ".git",
             "node_modules",
+            "[Ll]ibrary",
             "**/*.asmdef",
             "**/*.asset",
             "**/*.bank",
+            "**/*.csproj",
             "**/*.jpg",
             "**/*.jpeg",
             "**/*.mat",
@@ -19,6 +21,7 @@ require('telescope').setup {
             "**/*.prefab",
             "**/*.preset",
             "**/*.ttf",
+            "**/*.unity",
             "**/*.wav"
         }
     }

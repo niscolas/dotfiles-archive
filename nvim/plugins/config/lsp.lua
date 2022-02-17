@@ -50,8 +50,10 @@ local lsp_installer = require("nvim-lsp-installer")
 
 -- Include the servers you want to have installed by default below
 local servers = {
-    "omnisharp",
-    "sumneko_lua"
+    -- "omnisharp",
+    "jsonls",
+    "sumneko_lua",
+    "vimls"
 }
 
 for _, name in pairs(servers) do
@@ -76,12 +78,12 @@ lsp_installer.on_server_ready(function(server)
     -- Now we'll create a server_opts table where we'll specify our custom LSP server configuration
     local server_opts = {
         -- Provide settings that should only apply to the "eslintls" server
-        ["omnisharp"] = function()
-            default_opts = {
-                capabilities = capabilities,
-                on_attach = on_attach,
-            }
-        end,
+        -- ["omnisharp"] = function()
+        --     default_opts = {
+        --         capabilities = capabilities,
+        --         on_attach = on_attach,
+        --     }
+        -- end,
     }
 
     -- Use the server's custom settings, if they exist, otherwise default to the default options
