@@ -16,6 +16,7 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-PATH="$HOME/.local/bin:$PATH"
 PATH="$HOME/usr/local/go/bin:$PATH"
+PATH="$HOME/.cargo/bin:$PATH"
 
+export CRONS_PATH="/mnt/c/Users/niscolas/_ssd_vault/crons"
