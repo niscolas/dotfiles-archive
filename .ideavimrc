@@ -14,8 +14,8 @@ set argtextobj
 set commentary
 set easymotion
 set surround
-set textobj-indent
 set highlightedyank
+set textobj-indent
 set textobj-entire
 set ReplaceWithRegister
 
