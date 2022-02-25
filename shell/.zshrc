@@ -7,6 +7,8 @@ antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen apply
 
+source /opt/asdf-vm/asdf.sh
+
 eval "$(zoxide init zsh)"
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
