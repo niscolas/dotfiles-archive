@@ -1,10 +1,11 @@
 pfetch
 
 source ~/.zsh/antigen.zsh
-antigen bundle command-not-found
-antigen bundle git
-antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle 'command-not-found'
+antigen bundle 'git'
+antigen bundle 'wfxr/forgit'
+antigen bundle 'zsh-users/zsh-autosuggestions'
+antigen bundle 'zsh-users/zsh-syntax-highlighting'
 antigen apply
 
 source /opt/asdf-vm/asdf.sh
