@@ -11,6 +11,8 @@ antigen apply
 
 source /opt/asdf-vm/asdf.sh
 
+source /usr/share/nvm/init-nvm.sh
+
 eval "$(zoxide init zsh)"
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
