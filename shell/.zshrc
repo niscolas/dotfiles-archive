@@ -36,7 +36,6 @@ alias cat="bat"
 alias l="exa -aghHl@ --group-directories-first --icons --color always"
 alias lt="l -T"
 alias clip="clip.exe"
-alias node="/lib64/ld-linux-x86-64.so.2 /usr/bin/node"
 alias cd="z"
 
 ### ctrl+arrows
