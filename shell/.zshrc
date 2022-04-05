@@ -9,8 +9,6 @@ antigen bundle 'zsh-users/zsh-autosuggestions'
 antigen bundle 'zsh-users/zsh-syntax-highlighting'
 antigen apply
 
-source /opt/asdf-vm/asdf.sh
-
 source /usr/share/nvm/init-nvm.sh
 
 eval "$(zoxide init zsh)"
