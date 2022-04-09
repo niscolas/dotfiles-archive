@@ -11,8 +11,6 @@ antigen apply
 
 source /opt/asdf-vm/asdf.sh
 
-source /usr/share/nvm/init-nvm.sh
-
 eval "$(zoxide init zsh)"
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
@@ -27,7 +25,7 @@ fi
 
 ## exports
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow -g "!{.git,node_modules,**/*.meta}/*" 2> /dev/null'
-export EDITOR=lvim
+export EDITOR=helix
 export VISUAL=$EDITOR
 
 ## settings
