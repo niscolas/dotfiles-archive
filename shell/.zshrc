@@ -1,4 +1,4 @@
-pfetch
+neofetch
 
 source ~/.zsh/antigen.zsh
 antigen theme romkatv/powerlevel10k
@@ -9,7 +9,7 @@ antigen bundle 'zsh-users/zsh-autosuggestions'
 antigen bundle 'zsh-users/zsh-syntax-highlighting'
 antigen apply
 
-source /opt/asdf-vm/asdf.sh
+#source /opt/asdf-vm/asdf.sh
 
 eval "$(zoxide init zsh)"
 
