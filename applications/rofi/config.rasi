@@ -144,4 +144,5 @@ configuration {
       directories-first: true;
       sorting-method:    "name";
   }
+  @theme "gruvbox-dark-hard"
 }
