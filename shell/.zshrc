@@ -26,7 +26,7 @@ fi
 ## exports
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow -g "!{.git,node_modules,**/*.meta}/*" 2> /dev/null'
 export EDITOR=nvim
-export TERMINAL=kitty
+export TERMINAL=/bin/kitty
 export VISUAL=$EDITOR
 
 ## settings
