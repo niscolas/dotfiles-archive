@@ -28,7 +28,6 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --follow -g "!{.git,node_modules
 export EDITOR=nvim
 export TERMINAL=kitty
 export VISUAL=$EDITOR
-export QT_STYLE_OVERRIDE=kvantum
 
 ## settings
 bindkey -v
