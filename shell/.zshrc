@@ -25,7 +25,7 @@ fi
 
 ## exports
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow -g "!{.git,node_modules,**/*.meta}/*" 2> /dev/null'
-export EDITOR=helix
+export EDITOR=nvim
 export VISUAL=$EDITOR
 
 ## settings
