@@ -1,3 +1,4 @@
+#!/bin/bash
 # shellcheck shell=sh
 
 # Compatible with ranger 1.4.2 through 1.9.*
@@ -20,5 +21,5 @@ ranger_cd() {
 }
 
 # This binds Ctrl-O to ranger_cd:
-bindkey '"\C-o":"ranger_cd\C-m"'
+bind '"\C-o":"ranger_cd\C-m"'
 
