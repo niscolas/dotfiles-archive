@@ -57,3 +57,5 @@ bindkey '^H' backward-kill-word
 bindkey "\e[3;6~" kill-line
 # urxvt
 bindkey "\e[3@" kill-line
+
+source /home/niscolas/.config/broot/launcher/bash/br
