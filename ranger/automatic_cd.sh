@@ -1,5 +1,4 @@
 #!/bin/bash
-# shellcheck shell=sh
 
 # Compatible with ranger 1.4.2 through 1.9.*
 #
