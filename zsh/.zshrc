@@ -8,8 +8,6 @@ antigen bundle 'wfxr/forgit'
 antigen bundle 'zsh-users/zsh-autosuggestions'
 antigen bundle 'zsh-users/zsh-syntax-highlighting'
 antigen apply
-
-source ~/dotfiles/ranger/automatic_cd.sh
 #source /opt/asdf-vm/asdf.sh
 
 eval "$(zoxide init zsh)"
@@ -38,6 +36,7 @@ alias cat="bat"
 alias l="exa -aghHl@ --group-directories-first --icons --color always"
 alias lt="l -T"
 alias clip="clip.exe"
+alias r=". ranger"
 
 ### ctrl+arrows
 bindkey "\e[1;5C" forward-word
