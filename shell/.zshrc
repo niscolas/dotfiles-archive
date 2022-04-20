@@ -9,6 +9,7 @@ antigen bundle 'zsh-users/zsh-autosuggestions'
 antigen bundle 'zsh-users/zsh-syntax-highlighting'
 antigen apply
 
+source /home/niscolas/.config/broot/launcher/bash/br
 #source /opt/asdf-vm/asdf.sh
 
 eval "$(zoxide init zsh)"
@@ -58,4 +59,3 @@ bindkey "\e[3;6~" kill-line
 # urxvt
 bindkey "\e[3@" kill-line
 
-source /home/niscolas/.config/broot/launcher/bash/br
