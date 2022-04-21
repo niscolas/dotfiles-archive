@@ -8,7 +8,6 @@ antigen bundle 'wfxr/forgit'
 antigen bundle 'zsh-users/zsh-autosuggestions'
 antigen bundle 'zsh-users/zsh-syntax-highlighting'
 antigen apply
-#source /opt/asdf-vm/asdf.sh
 
 eval "$(zoxide init zsh)"
 
