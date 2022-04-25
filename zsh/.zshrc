@@ -45,7 +45,6 @@ alias cat="bat"
 alias l="exa -aghHl@ --group-directories-first --icons --color always"
 alias lt="l -T"
 alias clip="xclip -selection clipboard"
-alias n="nvim"
 alias r=". ranger"
 
 ### ctrl+arrows
