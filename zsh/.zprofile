@@ -19,4 +19,7 @@ fi
 PATH="$HOME/usr/local/go/bin:$PATH"
 PATH="$HOME/.cargo/bin:$PATH"
 
-export CRONS_PATH="/mnt/c/Users/niscolas/_ssd_vault/crons"
+export EDITOR=nvim
+export TERMINAL=/bin/kitty
+export VISUAL=$EDITOR
+export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1

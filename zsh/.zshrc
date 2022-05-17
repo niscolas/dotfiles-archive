@@ -1,10 +1,6 @@
-neofetch
-
 source ~/.zsh/antigen.zsh
 antigen theme romkatv/powerlevel10k
 antigen bundle 'command-not-found'
-antigen bundle 'git'
-antigen bundle 'wfxr/forgit'
 antigen bundle 'zsh-users/zsh-autosuggestions'
 antigen bundle 'zsh-users/zsh-syntax-highlighting'
 antigen apply
@@ -20,25 +16,11 @@ fi
 
 ## exports
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow -g "!{.git,node_modules,**/*.meta}/*" 2> /dev/null'
-export EDITOR=nvim
-export TERMINAL=/bin/kitty
-export VISUAL=$EDITOR
-
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    export PATH="$HOME/bin:$PATH"
-fi
-
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
-fi
-
-export PATH="$HOME/usr/local/go/bin:$PATH"
-export PATH="$HOME/.cargo/bin:$PATH"
 
 ## settings
 bindkey -v
+# https://stackoverflow.com/a/24237590/16589245
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
 ## aliases
 alias cat="bat"
