@@ -6,14 +6,12 @@ configuration {
 
   icon-theme: "Papirus";
 
-  combi-modes: "window";
-  modes: "window";
-
   timeout {
       action: "kb-cancel";
       delay:  0;
   }
 
+  sidebar-mode: true;
   show-icons: true;
 }
 
