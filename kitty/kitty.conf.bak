@@ -146,7 +146,7 @@ map kitty_mod+i set_tab_title
 
 # color scheme {{{
 
-background_opacity 0.9
-include current-theme.conf
+background_opacity 0.5
+include theme.conf
 
 # }}}

@@ -4,9 +4,11 @@ set $mod Mod4
 set $i3_mode_default mode "default"
 
 ## execs
+exec --no-startup-id xrandr --output eDP-1 --auto
 exec --no-startup-id picom
 exec --no-startup-id blueman-applet
 exec --no-startup-id nm-applet
+exec --no-startup-id sudo ~/scripts/disable_turbo.sh
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
