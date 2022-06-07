@@ -22,15 +22,6 @@ exec_always --no-startup-id ~/dotfiles/polybar/launch.sh
 exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpapers/sunset-116-1920×1080.jpg
 
 ## modes
-bindsym $mod+Shift+m mode "kbmap"
-mode "kbmap" {
-    bindsym u exec setxkbmap us
-    bindsym b exec setxkbmap br
-
-    bindsym Escape $i3_mode_default
-    bindsym Return $i3_mode_default
-}
-
 bindsym $mod+Shift+Control+r mode "resize"
 mode "resize" {
     set $resize_amount 10 px or 10 ppt
@@ -49,10 +40,9 @@ bindsym $mod+Return exec kitty
 
 ## rofi
 bindsym $mod+d exec rofi -show combi
-bindsym $mod+a exec rofi -show fb -modi "fb:~/.config/rofi/scripts/test.sh"
 
 ## other programs
-bindsym $mod+o exec flameshot gui
+bindsym $mod+Shift+s exec flameshot gui
 
 ## windows / layout management
 bindsym $mod+Shift+q kill
