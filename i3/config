@@ -31,9 +31,10 @@ mode "resize" {
     bindsym k resize shrink height $resize_amount
     bindsym l resize grow width $resize_amount
 
-    bindsym Escape $i3_mode_default
-    bindsym Return $i3_mode_default
+    bindsym Escape $i3_mode_default bindsym Return $i3_mode_default
 }
+
+bindsym $mod+comma exec ~/dotfiles/i3/scripts/swap_kblayout.sh
 
 ## terminal
 bindsym $mod+Return exec kitty
