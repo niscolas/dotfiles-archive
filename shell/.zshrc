@@ -16,11 +16,13 @@ SAVEHIST=1000
 
 ## aliases
 alias cat="bat"
+alias cd="z"
+alias clip="xclip -selection clipboard"
 alias l="exa -aghHl@ --group-directories-first --icons --color always"
 alias lt="l -T"
-alias clip="xclip -selection clipboard"
-alias nvim="nvim --startuptime /tmp/nvim-startuptime"
+alias n="nvim --startuptime /tmp/nvim-startuptime"
 alias r=". ranger"
+alias x="xplr"
 
 ## settings
 # https://stackoverflow.com/a/24237590/16589245

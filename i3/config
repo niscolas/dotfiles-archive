@@ -18,6 +18,10 @@ exec --no-startup-id dex --autostart --environment i3
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
+exec setxkbmap us
+exec setxkbmap -option "compose:menu" 
+exec ~/dotfiles/i3/scripts/google_drive_rclone.sh
+
 exec_always --no-startup-id ~/dotfiles/polybar/launch.sh
 exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpapers/sunset-116-1920×1080.jpg
 
